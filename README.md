@@ -9,5 +9,12 @@ This flow:
 	2. New item creation skips #2 goes straight to multiple approvers (**although this doesn't sound like the best option**)
 4. Once all status columns for list item are updated (completed?) an alert/email is generated to approval owner so they can update item status to "complete" or similar and send confirmation of action to the data subject. 
 
-**Resources:**
-See [this sample from from the M365 user community](https://github.com/pnp/powerautomate-samples/tree/main/samples/request-review-and-approval-for-a-selected-file) See also [this Power Automate template from Microsoft](https://powerautomate.microsoft.com/en-us/templates/details/d62b2527bb5343d689d5107b0922e57b/start-approval-when-a-new-item-is-added/) or the [larger library of Power Automate templates](https://powerautomate.microsoft.com/en-us/templates/](https://powerautomate.microsoft.com/en-us/templates/) 
+## The Flow
+I am envisioning a flow like: 
+
+![Flow diagram](images/Flow_chart.jpg)
+
+## Resources:
+- See [this sample from from the M365 user community](https://github.com/pnp/powerautomate-samples/tree/main/samples/request-review-and-approval-for-a-selected-file)
+- See also [this Power Automate template from Microsoft](https://powerautomate.microsoft.com/en-us/templates/details/d62b2527bb5343d689d5107b0922e57b/start-approval-when-a-new-item-is-added/) or,
+- the [larger library of Power Automate templates](https://powerautomate.microsoft.com/en-us/templates/](https://powerautomate.microsoft.com/en-us/templates/) 
