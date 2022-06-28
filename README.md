@@ -3,7 +3,7 @@
 ## Summary
 This flow:
 1. Generates a new SharePoint list item from a public form for data subjects.
-2. Sends approver owner an email to review the new item (and manually mark as "new" or "in progress" or some variant thereof).
+2. Sends the "approval owner" an email to review the new item (and manually mark as "new" or "in progress" or some variant thereof).
 3. _Either_
 	1. Approval from #2 triggers a review/status update from system owners who can update status via email -_or_-
 	2. New item creation skips #2 goes straight to multiple approvers (**although this doesn't sound like the best option**)
