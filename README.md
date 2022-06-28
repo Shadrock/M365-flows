@@ -11,8 +11,10 @@ This flow:
 
 ## The Flow
 I am envisioning a flow like: 
-
 ![Flow diagram](images/Flow_chart.jpg)
+
+## Notes
+It's possible that this flow would actually be two separate flows: one to generate the list item from a form and send out email to approval owner, then a _second_ flow that triggered once the approval owner "approved" or changed status on the list item and took it through the rest of the steps. Not sure if it's easier/better to do one flow versus two. 
 
 ## Resources:
 - MC staff can access [the Miro board of flow here](https://miro.com/app/board/uXjVOp0icsQ=/?share_link_id=343465265876). 
