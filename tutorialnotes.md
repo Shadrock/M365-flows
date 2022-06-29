@@ -1,5 +1,5 @@
 # Request approval for new item in a SharePoint list (send item to multiple people for status updates)
-[documenting everything here](https://github.com/Shadrock/M365-flows)
+[See use case and flow structure in the `README` for this repo here](https://github.com/Shadrock/M365-flows)
 
 ## Tutorial
 [Following this tutorial](https://docs.microsoft.com/en-us/learn/modules/get-started-flows/)
