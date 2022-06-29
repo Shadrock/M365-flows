@@ -17,6 +17,7 @@ I am envisioning a flow like:
 It's possible that this flow would actually be two separate flows: one to generate the list item from a form and send out email to approval owner (shown above with black and white icons), then a _second_ flow that triggered once the approval owner "approved" or changed status on the list item and took it through the rest of the steps (shown above with green/red icons). Not sure if it's easier/better to do one flow versus two. 
 
 ## Resources:
+- This walk-through for creating a [Simple Ticketing System in SharePoint Online](https://concurrency.com/blog/february-2019/create-a-simple-ticketing-system-in-sharepoint-onl) is what got me started thinking about managing DSRs in a List versus the current spreadsheet workflow. 
 - MC staff can access [the Miro board of flow here](https://miro.com/app/board/uXjVOp0icsQ=/?share_link_id=343465265876). 
 - See [this sample from from the M365 user community](https://github.com/pnp/powerautomate-samples/tree/main/samples/request-review-and-approval-for-a-selected-file)
 - See also [this Power Automate template from Microsoft](https://powerautomate.microsoft.com/en-us/templates/details/d62b2527bb5343d689d5107b0922e57b/start-approval-when-a-new-item-is-added/) or,
