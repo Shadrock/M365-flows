@@ -35,4 +35,4 @@ From there, you can select outputs from the various fields (responses) from the 
 Another trick is that once you've gotten the response details, _any_ action that will used them needs to be nested within an action called **Apply to each**. The blog post suggests this gets created automatically, but I actually just added it manually. The use-case here is that I want to create a row in a SharePoint list using the form data, but I also want to send the person filling out the form a canned response, using the email they submitted in the form. 
 
 So the current flow looks like this: 
-![screenshot of flow](images/apply-each-flow.png)
+![screenshot of flow](images/apply-each-flow-new.png)
