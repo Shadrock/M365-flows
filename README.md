@@ -22,3 +22,4 @@ It's possible that this flow would actually be two separate flows: one to genera
 - See [this sample from from the M365 user community](https://github.com/pnp/powerautomate-samples/tree/main/samples/request-review-and-approval-for-a-selected-file)
 - See also [this Power Automate template from Microsoft](https://powerautomate.microsoft.com/en-us/templates/details/d62b2527bb5343d689d5107b0922e57b/start-approval-when-a-new-item-is-added/) or,
 - the [larger library of Power Automate templates](https://powerautomate.microsoft.com/en-us/templates/) 
+- [Packaging Power Automate flows for sharing, import, and export](https://powerautomate.microsoft.com/en-us/blog/import-export-bap-packages/).
