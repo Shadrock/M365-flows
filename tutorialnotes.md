@@ -14,7 +14,7 @@
 
 I started running "Flow checker" before saving to see if I'd broken anything but, honestly, it never showed any errors. Those only showed up on run. So, now I generally run the flow then, to debug them go to **Monitor** and then **Cloud flow activity** on the left menu (or select the **Activity** tab in the mobile app) and then select your flow in the list that appears. This is vastly more helpful than the Flow checker (or this other pointless "PowerBI check thingy" that I ran once, which also showed that everything was fine) and shows exactly where the flow broke by displaying green check icons on steps that worked and a red exclamation point (!) symbol on the ones that didn't. However, it seems to take this service a _while_ to update after you run a flow. Feels like from 10-15 minutes... so be patient.
 
-## Notes - Gettoing started & Actions from Forms
+## Notes - Getting started & Actions from Forms
 Nice to realize you can access templates in browser: in the left-hand nav column.
 All flows start with Triggers.
 To change the "dynamic content" that Flow loads from previous actions, delete the "tag" looking icon and place your cursor in the empty space. Flow will prompt with what's able to pull in given the source/actions.
@@ -44,7 +44,7 @@ Just like in coding, you have to watch out for infinite loops. I'm updating my a
 
 For this, I've added the following expression to the **When a new response is submitted** action, by clicking the horizontal ellipsis / meatballs icon and adding this to the Trigger conditions section: `@equals(triggerBody()?['Status'], 'New')`. This will trigger only when the Status of an item in the list is `New`. So when my approval changes it to `In progress` it won't keep looping.
 
-So I did that... and it broke the damn flow. Actually, I don't see any sign that it triggered at all, so I'm assuming it's the trigger condition.
+So I did that... and it broke the damn flow. Actually, I don't see any sign that it triggered at all, so I'm assuming it's the trigger condition. Either the flow breaks because of something else, or setting the trigger condition to status as `New` creates a problem... not sure how though, unless the creation of the new item is registered as new _after_ the flow picks it up. could I make it not equal `In progress`, along with the others? 
 
 **Note** - I'm realizing that this is the wrong kind of flow. I do _not_ want an approval anytime the list is updated. I just want to know when a new entry is there, which I will check, and then update. I think I need to get rid of the approval flow and just get second email sent to me upon item creation so I can update. Then the update triggers the system owner email: this will be a lot easy to govern since it's just one action (`Status` = `In progress`) that will be a trigger.
 - Added an **Apply to each** container to the Create List Item flow. Put the Send an email (V2) within that and added an additional one set to simply notify my that the record has been created and that I need to update status. - This didn't work!
