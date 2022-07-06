@@ -23,7 +23,7 @@ On it's own, it can be used to populate a list and send notifications. Together 
 ## Authors
 Solution|Author(s) , Organization
 --------|---------
-folder name | [Shadrock Roberts](https://github.com/Shadrock), [Mercy Corps](https://www.mercycorps.org/)
+Flow-file | [Shadrock Roberts](https://github.com/Shadrock), [Mercy Corps](https://www.mercycorps.org/)
 
 ## Version history
 Version|Date|Comments
@@ -40,7 +40,6 @@ This sample Flow illustrates the following concepts:
 * Posting a Teams message in a chat
 
 ## Prerequisites
-
 This flow requires a [Microsoft Form](https://support.microsoft.com/en-us/office/introduction-to-microsoft-forms-bb1dd261-260f-49aa-9af0-d3dddcea6d69) and a [List in SharePoint](https://support.microsoft.com/en-us/office/introduction-to-lists-0a1c3ace-def0-44af-b225-cfa8d92c52d7). You will need to map form fields to list columns. This example uses the following:
 - Form fields - Name, email, physical address, country of citizenship, request (input as multiple options using radio buttons)
 - List fields - Name, physical address, contact (input as email), request, status (items created with this flow are marked `New`), various columns for systems that need to be checked for the request.
@@ -48,19 +47,22 @@ This flow requires a [Microsoft Form](https://support.microsoft.com/en-us/office
 _Note_: Input for citizenship is not captured in the list and is only used to ensure that we are complying with all relevant laws.
 
 ## Installation
-
-* [Download](./solution/YOURSAMPLENAME.zip) the `.zip` file from the `Flow-file` folder <!-- add path when ready -->
+* [Download](Flow-file/Create-list-item-notifications-from-form_20220706215310.zip) the `.zip` file from the `Flow-file` folder <!-- Test download and import -->
 * Browse to your [Power Automate](https://flow.microsoft.com/manage/environments) and select the environment where you wish to import the sample
 * From the toolbar, select **Import**
 * In the **Import package** page, select **Upload** and choose the `.zip` file containing the sample flow.
 * Select **Import**
 * Once the sample Flow is installed, you will need to change the relevant variables to connect with your forms, lists, and staff.
 
+For further help importing Flows, [see this blog post from Microsoft](https://powerautomate.microsoft.com/en-us/blog/import-export-bap-packages/).
+
 ### Changes / updates
 ??? Do we need further instructions here ???
 
 ## Disclaimer
 This code is provided *as is* without any warranty of any kind, either express or implied, including any implied warranties of fitness for a particular purpose, merchantability, or non-infringement.
+
+??? Would it be better to simply have a CC licence, which would take care of all this ??? I think so!
 
 ## Help & Feedback
 
