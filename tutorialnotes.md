@@ -53,7 +53,11 @@ So I did that... and it broke the damn flow. Actually, I don't see any sign that
 So, complete Flow #1 (or first flow), looks like this:
 ![screenshot of working flow 1](images/Flow1_Create_item_send_notifications.png)
 
-Big questions is whether or not the parallel branches should be contained with an **Apply to each** container. Would that be more clean? 
+### Next steps for Flow #1
+- [ ] Decide whether or not the parallel branches should be contained with an **Apply to each** container. Would that be more clean?
+- [X] Add a Teams notification along w/ email notification to me. This was easy: just added a next step under the email.
+Updated complete Flow #1 (or first flow), looks like this:
+![screenshot of working flow 1](images/Flow1_Create_item_send_notifications2.png)
 
 ### Notes on Problems I've run into - may or many not make it into documentation
 
