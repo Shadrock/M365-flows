@@ -47,7 +47,7 @@ This flow requires a [Microsoft Form](https://support.microsoft.com/en-us/office
 _Note_: Input for citizenship is not captured in the list and is only used to ensure that we are complying with all relevant laws.
 
 ## Installation
-* [Download](Flow-file/Create-list-item-notifications-from-form_20220706215310.zip) the `.zip` file from the `Flow-file` folder <!-- Test download and import -->
+* [Download](Flow-file/Create-list-item-notifications-from-form_20220706215310.zip) the `.zip` file from the `Flow-file` folder by clicking on "View raw" or the "Download" button. <!-- Test download and import -->
 * Browse to your [Power Automate](https://flow.microsoft.com/manage/environments) and select the environment where you wish to import the sample
 * From the toolbar, select **Import**
 * In the **Import package** page, select **Upload** and choose the `.zip` file containing the sample flow.
