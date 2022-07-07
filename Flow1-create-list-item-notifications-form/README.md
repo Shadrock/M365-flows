@@ -23,7 +23,7 @@ On it's own, it can be used to populate a list and send notifications. Together 
 ## Authors
 Solution|Author(s) , Organization
 --------|---------
-[Flow-file](/Flow-file) | [Shadrock Roberts](https://github.com/Shadrock), [Mercy Corps](https://www.mercycorps.org/)
+[Flow-file](Flow-file/) | [Shadrock Roberts](https://github.com/Shadrock), [Mercy Corps](https://www.mercycorps.org/)
 
 ## Version history
 Version|Date|Comments
