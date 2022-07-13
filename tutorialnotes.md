@@ -44,7 +44,7 @@ Just like in coding, you have to watch out for infinite loops. I'm updating my a
 
 For this, I've added the following expression to the **When a new response is submitted** action, by clicking the horizontal ellipsis / meatballs icon and adding this to the Trigger conditions section: `@equals(triggerBody()?['Status'], 'New')`. This will trigger only when the Status of an item in the list is `New`. So when my approval changes it to `In progress` it won't keep looping.
 
-So I did that... and it broke the damn flow. Actually, I don't see any sign that it triggered at all, so I'm assuming it's the trigger condition. Either the flow breaks because of something else, or setting the trigger condition to status as `New` creates a problem... not sure how though, unless the creation of the new item is registered as new _after_ the flow picks it up. could I make it not equal `In progress`, along with the others? 
+So I did that... and it broke the damn flow. Actually, I don't see any sign that it triggered at all, so I'm assuming it's the trigger condition. Either the flow breaks because of something else, or setting the trigger condition to status as `New` creates a problem... not sure how though, unless the creation of the new item is registered as new _after_ the flow picks it up. could I make it not equal `In progress`, along with the others?
 
 **Note** - I'm realizing that this is the wrong kind of flow. I do _not_ want an approval anytime the list is updated. I just want to know when a new entry is there, which I will check, and then update. I think I need to get rid of the approval flow and just get second email sent to me upon item creation so I can update. Then the update triggers the system owner email: this will be a lot easy to govern since it's just one action (`Status` = `In progress`) that will be a trigger.
 - Added an **Apply to each** container to the Create List Item flow. Put the Send an email (V2) within that and added an additional one set to simply notify my that the record has been created and that I need to update status. - This didn't work!
@@ -59,6 +59,22 @@ So, complete Flow #1 (or first flow), looks like this:
 Updated complete Flow #1 (or first flow), looks like this:
 ![screenshot of working flow 1](images/Flow1_Create_item_send_notifications2.png)
 
+## Notes - Getting started on Flow #2
+I was able to fairly easily set up notifications that are triggered on the condition of an item being modified [using this post](https://powerusers.microsoft.com/t5/Using-Flows/Status-changes-email-notification-flow/td-p/110122).
+
+One slightly tricky bit in the condition was ensuring that I had selected that the `Status Value` `is equal to` as opposed to just `Status` is equal to. Also, wasn't quite sure how to get the list of values for the Status column so after `is equal to`, I simply typed it in: `In Progress`. This worked! As a check, I selected the "Edit in advanced mode" link under the condition to see what the formula looked like: `@equals(triggerBody()?['field_4']?['Value'], 'In Progress')`. See screenshot below.
+![screenshot of working flow 1](images/Flow2_condition.png)
+
+The other tricky thing was formatting the body of the notifications. I just guessed that - since the Flow started / triggered with a SharePoint list item that the values from that would automatically populate in the "Dynamic Content" window and they did. So I was able to pull data subject name and request. However, just plopping in the value (using the Dynamic Content icon) was tricky because you can't apply styling to that. There may be a way to add this but treating the icon as text in the WYSIWYG didn't work. Neither did Markdown formatting for the Teams chat. I tried using the code block formatting (e.g. `this`) but it just showed the **`** right along with the text. In the end I went with:
+![screenshot of working flow 1](images/Flow2_notification_formatting.png)
+
+The current flow is:
+![screenshot of working flow 1](images/Flow2.png)
+
+I don't know if I need to, but I've added a termination command to the "if no" branch.
+
+Final step is figuring out if I can allow column-level status changes via email or Teams!!! 
+
 ### Notes on Problems I've run into - may or many not make it into documentation
 
 ~~I suspect that my Flow isn't finding my form. It's not coming up in the list, but I'm seeing obvious test forms such as `Michael Boeglin wants:`, `Should we do a poll?`, etc. I looked for these polls in our SharePoint to see if I could move my poll to wherever they were being pulled from, but couldn't find them.~~ I then found [this thread on providing Flow with an ID](KIbeCD5Z9UOc6_Pl3Xriyx3n5LHDRGZKthkEGSwyKjpUNVdVUlA4RkE5NTBRQ1dSTU1JQllMNEo5NiQlQCN0PWcu). This involves looking at the form as a user (not just copying a share link, but actually activating that link yourself), then looking at the URL to find the `id`, which should be everything _after_ `FlowID=`. However, it looks like the URL structure has changed to be simpley `id=`. So from the URL `https://forms.office.com/Pages/ResponsePage.aspx?id=KIbeCD5Z9UOc6_Pl3Xriyx3n5LHDRGZKthkEGSwyKjpUNVdVUlA4RkE5NTBRQ1dSTU1JQllMNEo5NiQlQCN0PWcu` we would grab `KIbeCD5Z9UOc6_Pl3Xriyx3n5LHDRGZKthkEGSwyKjpUNVdVUlA4RkE5NTBRQ1dSTU1JQllMNEo5NiQlQCN0PWcu` as the ID.
@@ -66,9 +82,13 @@ Updated complete Flow #1 (or first flow), looks like this:
  - I checked this. For reference, the above trick using `id` definitely didn't work. I deleted the form, which I had created in the... ["general?" DPP Sharepoint space](https://www.office.com/launch/forms/groupforms?auth=2&groupId=b1e4e71d-44c3-4a66-b619-04192c322a3a) and which was a "Group form" and re-created it in "My forms" - a barely perceptible link on the "group forms" page led the way. It now shows up under the dropdown menu for flows, which is great. However the flow is STILL FAILING!!! It's not populating the list nor generating an email.
 
 ## Next steps
-- [ ] I need some way to notify system owners that a new record and has been created, and allow them to update the status via email. Is this possible?
+- [x] I need some way to notify system owners that a new record and has been created...
+- [ ] and allow them to update the status via email. Is this possible?
+  - I've created a draft second flow that triggers when I change the **Status** column from `New` to `In Progress` and sends an email/Teams chat with the data subject's name and request and link to list for system owner to update. next step is to see if they can update via mail (like an approval) as opposed to having to go to the list.
   - This isn't quite right, but it looks like a good tutorial for [updating a SharePoint List Item with multiple conditions](https://www.enjoysharepoint.com/power-automate-update-sharepoint-list-item/).
   - There is an action called "send email with options"
-- [ ] I may want a notification when _all_ of the status columns in a list are updated (or after a given time if all of them aren't)  Here's a flow for [email notification sent when the status of a column in a list in changed](https://powerusers.microsoft.com/t5/Building-Flows/Sharepoint-List-and-Flow-with-a-status-update/td-p/139821).
-- [ ] How many flows should this be? I feel like should bundle the original item creation with two email notifications (one to respondent and one to dataprotection@) in the same flow. In fact, email could just bcc dp@, right? Then have a second flow that is me updating the status to `in progress`, which kicks off the notification to system owners.
+- [ ] I may want a notification when _all_ of the status columns in a list are updated (or after a given time if all of them aren't)  Here's a flow for [email notification sent when the status of a column in a list in changed](https://powerusers.microsoft.com/t5/Building-Flows/Sharepoint-List-and-Flow-with-a-status-update/td-p/139821). I don't think this is right... I probably need an expression that checks status in all columns...
+- [x] How many flows should this be? I feel like should bundle the original item creation with two email notifications (one to respondent and one to dataprotection@) in the same flow. In fact, email could just bcc dp@, right? Then have a second flow that is me updating the status to `in progress`, which kicks off the notification to system owners.
+  - For right now, I'm choosing 2. Since this will be a public form anything could end up in there and I want to perform the role of the "list owner" and view all new requests before I trigger the notice to the system owners. Ideally, the notification of the new list item would simply contain all the information in an approval and clicking the approval button would update the status. Figuring that out could be another stretch goal.
+- [ ] **NOTE** Would be good to update the form with a super brief summary of MC's privacy policy (e.g. we don't sell your data but we may share it) and a link to it.
 - [ ] Stretch goal is a notification when all status are updated or if a certain amount of time has passed and they aren't. This could be separate or part of main flow, either way, this is a stretch for now.
