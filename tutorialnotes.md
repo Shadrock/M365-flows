@@ -73,15 +73,26 @@ The current flow is:
 
 I don't know if I need to, but I've added a termination command to the "if no" branch.
 
-Final step is figuring out if I can allow column-level status changes via email or Teams!!! 
+Final step is figuring out if I can allow column-level status changes via email or Teams!!!
 
-### Notes on Problems I've run into - may or many not make it into documentation
+## List Changes
+I was looking up ways to modify list values and ran across [this post](https://techcommunity.microsoft.com/t5/sharepoint/updating-specific-list-column-value-with-flow/m-p/757183), which had a useful piece of information in it:
+> Also, if you set the default view of the list to be filtered so people can only see the items where the <shift person> column equals [Me], they can just pull up the list, see their own record and edit it. That will greatly reduce the probability of Mark accidentally editing the item for Jane. You can also turn on versioning, so each and every item change can be traced back to who made the change.
+
+I definitely want to change the DSR list view so the system owners only see their column! Also...
+
+>  If versioning is turned on,  there is an audit trail that shows exactly when a change was made [to the list], and by whom.
+
+This is what I'm looking for in terms of audit capacity.
+
+### Notes on Problems I've run into - may or may not make it into documentation
 
 ~~I suspect that my Flow isn't finding my form. It's not coming up in the list, but I'm seeing obvious test forms such as `Michael Boeglin wants:`, `Should we do a poll?`, etc. I looked for these polls in our SharePoint to see if I could move my poll to wherever they were being pulled from, but couldn't find them.~~ I then found [this thread on providing Flow with an ID](KIbeCD5Z9UOc6_Pl3Xriyx3n5LHDRGZKthkEGSwyKjpUNVdVUlA4RkE5NTBRQ1dSTU1JQllMNEo5NiQlQCN0PWcu). This involves looking at the form as a user (not just copying a share link, but actually activating that link yourself), then looking at the URL to find the `id`, which should be everything _after_ `FlowID=`. However, it looks like the URL structure has changed to be simpley `id=`. So from the URL `https://forms.office.com/Pages/ResponsePage.aspx?id=KIbeCD5Z9UOc6_Pl3Xriyx3n5LHDRGZKthkEGSwyKjpUNVdVUlA4RkE5NTBRQ1dSTU1JQllMNEo5NiQlQCN0PWcu` we would grab `KIbeCD5Z9UOc6_Pl3Xriyx3n5LHDRGZKthkEGSwyKjpUNVdVUlA4RkE5NTBRQ1dSTU1JQllMNEo5NiQlQCN0PWcu` as the ID.
 - ~~**I don't think this is working.** Next step is to check the connections for the form. It looks like it's running from my MC account... but should it be running from DPP Sharepoint? You'll need to "manage connections" for this.~~
  - I checked this. For reference, the above trick using `id` definitely didn't work. I deleted the form, which I had created in the... ["general?" DPP Sharepoint space](https://www.office.com/launch/forms/groupforms?auth=2&groupId=b1e4e71d-44c3-4a66-b619-04192c322a3a) and which was a "Group form" and re-created it in "My forms" - a barely perceptible link on the "group forms" page led the way. It now shows up under the dropdown menu for flows, which is great. However the flow is STILL FAILING!!! It's not populating the list nor generating an email.
 
 ## Next steps
+- [ ] I need to add a field for country in the list that maps to the form!
 - [x] I need some way to notify system owners that a new record and has been created...
 - [ ] and allow them to update the status via email. Is this possible?
   - I've created a draft second flow that triggers when I change the **Status** column from `New` to `In Progress` and sends an email/Teams chat with the data subject's name and request and link to list for system owner to update. next step is to see if they can update via mail (like an approval) as opposed to having to go to the list.
@@ -92,3 +103,8 @@ Final step is figuring out if I can allow column-level status changes via email 
   - For right now, I'm choosing 2. Since this will be a public form anything could end up in there and I want to perform the role of the "list owner" and view all new requests before I trigger the notice to the system owners. Ideally, the notification of the new list item would simply contain all the information in an approval and clicking the approval button would update the status. Figuring that out could be another stretch goal.
 - [ ] **NOTE** Would be good to update the form with a super brief summary of MC's privacy policy (e.g. we don't sell your data but we may share it) and a link to it.
 - [ ] Stretch goal is a notification when all status are updated or if a certain amount of time has passed and they aren't. This could be separate or part of main flow, either way, this is a stretch for now.
+
+
+### Resources
+- MS Docs has a good page on [Customizing Approval Requests](https://docs.microsoft.com/en-us/power-automate/approvals-howto), which includes a way to change the buttons (this is one of the things I'll need to do for system owners). Together with the [Top scenarios with approval flows](https://docs.microsoft.com/en-us/power-automate/approvals-howto) there is some useful info.
+- MS documentation on [creating useful views in lists](https://docs.microsoft.com/en-us/microsoft-365/community/creating-useful-views-in-lists-libraries#how-will-your-users-use-this-view) (e.g. make sure newest item is first) will be helpful for setting up list. Also, [filtering to modify a Sharepoint view](https://docs.microsoft.com/en-us/microsoft-365/community/creating-useful-views-in-lists-libraries#how-will-your-users-use-this-view) may be helpful (although it looks kinda confusing).
