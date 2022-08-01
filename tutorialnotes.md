@@ -86,7 +86,9 @@ I got to this point following the [Introducing Custom Response Options for Appro
 I was looking up ways to modify list values and ran across [this post](https://techcommunity.microsoft.com/t5/sharepoint/updating-specific-list-column-value-with-flow/m-p/757183), which had a useful piece of information in it:
 > Also, if you set the default view of the list to be filtered so people can only see the items where the <shift person> column equals [Me], they can just pull up the list, see their own record and edit it. That will greatly reduce the probability of Mark accidentally editing the item for Jane. You can also turn on versioning, so each and every item change can be traced back to who made the change.
 
-I definitely want to change the DSR list view so the system owners only see their column! Also...
+I definitely want to change the DSR list view so the system owners only see their column! [This MS post on SharePoint list security](https://docs.microsoft.com/en-us/answers/questions/557017/sharepoint-list-security.html) may be useful for this.
+
+Also...
 
 >  If versioning is turned on,  there is an audit trail that shows exactly when a change was made [to the list], and by whom.
 
@@ -94,7 +96,7 @@ This is what I'm looking for in terms of audit capacity.
 
 #### To Do List for List
  - [ ] **Need to make status same in list as in flow** (e.g. "Not in system" for both)
- - [ ] I need to add a field for country in the list that maps to the form!
+ - [X] I need to add a field for country in the list that maps to the form! Done for DSR test list.
  - [ ] Change the DSR list view so the system owners only see their column!
  - [ ] Confirm audit trail: either use versioning in list as noted above or see if approver Id can go into comments with some metadata.
 
