@@ -88,16 +88,18 @@ I was looking up ways to modify list values and ran across [this post](https://t
 
 I definitely want to change the DSR list view so the system owners only see their column! [This MS post on SharePoint list security](https://docs.microsoft.com/en-us/answers/questions/557017/sharepoint-list-security.html) may be useful for this.
 
+**Gah... looks like views cannot be created at the column/field level: only the `item` level, which equates to a row or "record".**
+
 Also...
 
 >  If versioning is turned on,  there is an audit trail that shows exactly when a change was made [to the list], and by whom.
 
-This is what I'm looking for in terms of audit capacity.
+This is what I'm looking for in terms of audit capacity. I did turn versioning on [following this documentation from MS](https://support.microsoft.com/en-us/office/how-versioning-works-in-lists-and-libraries-0f6cd105-974f-44a4-aadb-43ac5bdfd247). Still not quite sure how I'd run it in an audit, but it _is_ showing up.
 
 #### To Do List for List
  - [ ] **Need to make status same in list as in flow** (e.g. "Not in system" for both)
  - [X] I need to add a field for country in the list that maps to the form! Done for DSR test list.
- - [ ] Change the DSR list view so the system owners only see their column!
+ - [ ] ~~Change the DSR list view so the system owners only see their column!~~ Not possible at column level. 
  - [ ] Confirm audit trail: either use versioning in list as noted above or see if approver Id can go into comments with some metadata.
 
 ### Notes on Problems I've run into - may or may not make it into documentation
