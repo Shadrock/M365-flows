@@ -84,7 +84,7 @@ Just figured out why the list triggers twice: the flow is set to trigger value i
 
 I got to this point following the [Introducing Custom Response Options for Approvals](https://powerautomate.microsoft.com/en-us/blog/introducing-custom-response-options-for-approvals/) blog post from MS. This, [Add information to approval response and update sharepoint item](https://powerusers.microsoft.com/t5/Building-Flows/Add-information-to-approval-response-and-update-sharepoint-item/m-p/275080#M28225) post on the community forum was also helpful.
 
-Community post on [Multiple approvals based on different columns](https://powerusers.microsoft.com/t5/Building-Flows/Multiple-approvals-based-on-different-columns/m-p/1366790#M154292) looks very useful for multiple approvals in which each approval is for a different column. 
+Community post on [Multiple approvals based on different columns](https://powerusers.microsoft.com/t5/Building-Flows/Multiple-approvals-based-on-different-columns/m-p/1366790#M154292) looks very useful for multiple approvals in which each approval is for a different column. This [community post about multiple approvers](https://powerusers.microsoft.com/t5/Building-Flows/Multiple-approvers-workflow/m-p/185644#M19109) may also be helpful. 
 
 ## List Changes
 I was looking up ways to modify list values and ran across [this post](https://techcommunity.microsoft.com/t5/sharepoint/updating-specific-list-column-value-with-flow/m-p/757183), which had a useful piece of information in it:
