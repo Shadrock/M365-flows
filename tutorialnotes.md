@@ -80,6 +80,8 @@ Big breakthrough here! The flow works and currently looks like this:
 ![screenshot of working flow 1](images/Flow2_alternate3.png)
 The key seems to be using the **Start and wait for an approval** action versus the **Create an approval action**. I've set the approval type for `Custom Responses - Wait for one response`, wihch is working well for just me: we'll see how this works for multiple people! After this action, you use a **Switch** action and set it's "On" varaiable to `Outcome` (this should be dynamically available). From there you set up "Cases" in which the response the approver choose triggers a further action, in this case I'm using **Update Item** to change the status of the appropriate column in the list.
 
+Just figured out why the list triggers twice: the flow is set to trigger value is `In Progress`, which it does. However, this doesn't change after the system owner updates their system column with their compliance response... so I need some way to change that. Could add another variable to status column (e.g. `approved` that changes to something like `in progress` when the first system owner responds...). Needs some thought. 
+
 I got to this point following the [Introducing Custom Response Options for Approvals](https://powerautomate.microsoft.com/en-us/blog/introducing-custom-response-options-for-approvals/) blog post from MS. This, [Add information to approval response and update sharepoint item](https://powerusers.microsoft.com/t5/Building-Flows/Add-information-to-approval-response-and-update-sharepoint-item/m-p/275080#M28225) post on the community forum was also helpful.
 
 ## List Changes
