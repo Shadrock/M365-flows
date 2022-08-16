@@ -90,8 +90,16 @@ For the most part everything is working fine. However, the second flow was firin
 
 - I tried adding a Terminate action to the end of each Update action, under the Switch cases. This stopped sending email approvals... but they still showed up in Teams... very odd.
 - Going to try to add a Terminate action as a new step after the whole Start and wait for an approval condition.
-- Okay, deleted the terminations on the switch cases which just meant that I didn't get approvals via email anymore... so I added one Terminate action under the switch, which looks like this: ![Screenshot of Termination Attempt](images\Step-2-Triggering-Twice.png) getting the same result: getting double approvals in Teams... but no longer getting email approval. Actually, I just got an email approval... so it's just very slow (bad network today), but the new approval actually says "you already completed this request" so that's something, I guess? Anyways, the approvals via Teams still triggered twice...
-- So _now_ I'm just adding the Terminate as a new **step** under the whole flow, which looks like this: ![Screenshot of Termination Attempt](images\Step-2-Triggering-Twice2.png). GAHHHHAHARAHAHAGGGHRRRRRRR. Still getting two approvals. Only one for email now... but this is driving me insane. Really feel like that status tag needs to change with the first approval.
+- Okay, deleted the terminations on the switch cases which just meant that I didn't get approvals via email anymore... so I added one Terminate action under the switch, which looks like this: 
+
+![Screenshot of Termination Attempt](images/Step-2-Triggering-Twice.png)
+
+getting the same result: getting double approvals in Teams... but no longer getting email approval. Actually, I just got an email approval... so it's just very slow (bad network today), but the new approval actually says "you already completed this request" so that's something, I guess? Anyways, the approvals via Teams still triggered twice...
+- So _now_ I'm just adding the Terminate as a new **step** under the whole flow, which looks like this:
+
+![Screenshot of Termination Attempt 2](images/Step-2-Triggering-Twice2.png)
+
+GAHHHHAHARAHAHAGGGHRRRRRRR. Still getting two approvals. Only one for email now... but this is driving me insane. Really feel like that status tag needs to change with the first approval.
 
 ## List Changes
 I was looking up ways to modify list values and ran across [this post](https://techcommunity.microsoft.com/t5/sharepoint/updating-specific-list-column-value-with-flow/m-p/757183), which had a useful piece of information in it:
