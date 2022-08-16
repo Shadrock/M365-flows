@@ -80,11 +80,18 @@ Big breakthrough here! The flow works and currently looks like this:
 ![screenshot of working flow 1](images/Flow2_alternate3.png)
 The key seems to be using the **Start and wait for an approval** action versus the **Create an approval action**. I've set the approval type for `Custom Responses - Wait for one response`, wihch is working well for just me: we'll see how this works for multiple people! After this action, you use a **Switch** action and set it's "On" varaiable to `Outcome` (this should be dynamically available). From there you set up "Cases" in which the response the approver choose triggers a further action, in this case I'm using **Update Item** to change the status of the appropriate column in the list.
 
-Just figured out why the list triggers twice: the flow is set to trigger value is `In Progress`, which it does. However, this doesn't change after the system owner updates their system column with their compliance response... so I need some way to change that. Could add another variable to status column (e.g. `approved` that changes to something like `in progress` when the first system owner responds...). Needs some thought. 
-
 I got to this point following the [Introducing Custom Response Options for Approvals](https://powerautomate.microsoft.com/en-us/blog/introducing-custom-response-options-for-approvals/) blog post from MS. This, [Add information to approval response and update sharepoint item](https://powerusers.microsoft.com/t5/Building-Flows/Add-information-to-approval-response-and-update-sharepoint-item/m-p/275080#M28225) post on the community forum was also helpful.
 
-Community post on [Multiple approvals based on different columns](https://powerusers.microsoft.com/t5/Building-Flows/Multiple-approvals-based-on-different-columns/m-p/1366790#M154292) looks very useful for multiple approvals in which each approval is for a different column. This [community post about multiple approvers](https://powerusers.microsoft.com/t5/Building-Flows/Multiple-approvers-workflow/m-p/185644#M19109) may also be helpful. 
+Community post on [Multiple approvals based on different columns](https://powerusers.microsoft.com/t5/Building-Flows/Multiple-approvals-based-on-different-columns/m-p/1366790#M154292) looks very useful for multiple approvals in which each approval is for a different column. This [community post about multiple approvers](https://powerusers.microsoft.com/t5/Building-Flows/Multiple-approvers-workflow/m-p/185644#M19109) may also be helpful.
+
+I deprecated the original Flow #2 (email) to connect the new (approval) flow. One thing that came up was that the `Update item` action under the `Switch` kept throwing an error because the Citizenship field was required. I believe this was inherited from the List. I changed this on the list (not on the form), and it was still throwing errors so I've populated it with the Citizenship value from the list... will remove it.
+
+For the most part everything is working fine. However, the second flow was firing twice. Not sure why, but: the flow is set to trigger value is `In Progress`, which it does. However, this doesn't change after the system owner updates their system column with their compliance response... so I need some way to change that. Could add another variable to status column (e.g. `approved` that changes to something like `in progress` when the first system owner responds...). Needs some thought.
+
+- I tried adding a Terminate action to the end of each Update action, under the Switch cases. This stopped sending email approvals... but they still showed up in Teams... very odd.
+- Going to try to add a Terminate action as a new step after the whole Start and wait for an approval condition.
+- Okay, deleted the terminations on the switch cases which just meant that I didn't get approvals via email anymore... so I added one Terminate action under the switch, which looks like this: ![Screenshot of Termination Attempt](images\Step-2-Triggering-Twice.png) getting the same result: getting double approvals in Teams... but no longer getting email approval. Actually, I just got an email approval... so it's just very slow (bad network today), but the new approval actually says "you already completed this request" so that's something, I guess? Anyways, the approvals via Teams still triggered twice...
+- So _now_ I'm just adding the Terminate as a new **step** under the whole flow, which looks like this: ![Screenshot of Termination Attempt](images\Step-2-Triggering-Twice2.png). GAHHHHAHARAHAHAGGGHRRRRRRR. Still getting two approvals. Only one for email now... but this is driving me insane. Really feel like that status tag needs to change with the first approval.
 
 ## List Changes
 I was looking up ways to modify list values and ran across [this post](https://techcommunity.microsoft.com/t5/sharepoint/updating-specific-list-column-value-with-flow/m-p/757183), which had a useful piece of information in it:
@@ -102,8 +109,9 @@ This is what I'm looking for in terms of audit capacity. I did turn versioning o
 
 #### To Do List for List
  - [ ] **Need to make status same in list as in flow** (e.g. "Not in system" for both)
+- [ ] Add an option for "couldn't do this for XYZ reasons" per Kayleigh.
  - [X] I need to add a field for country in the list that maps to the form! Done for DSR test list.
- - [ ] ~~Change the DSR list view so the system owners only see their column!~~ Not possible at column level. 
+ - [ ] ~~Change the DSR list view so the system owners only see their column!~~ Not possible at column level.
  - [ ] Confirm audit trail: either use versioning in list as noted above or see if approver Id can go into comments with some metadata.
 
 ### Notes on Problems I've run into - may or may not make it into documentation
@@ -121,7 +129,7 @@ This is what I'm looking for in terms of audit capacity. I did turn versioning o
   - There is an action called "send email with options"
 - [x] How many flows should this be? I feel like should bundle the original item creation with two email notifications (one to respondent and one to dataprotection@) in the same flow. In fact, email could just bcc dp@, right? Then have a second flow that is me updating the status to `in progress`, which kicks off the notification to system owners.
   - For right now, I'm choosing 2. Since this will be a public form anything could end up in there and I want to perform the role of the "list owner" and view all new requests before I trigger the notice to the system owners. Ideally, the notification of the new list item would simply contain all the information in an approval and clicking the approval button would update the status. Figuring that out could be another stretch goal.
-- [ ] **NOTE** Would be good to update the form with a super brief summary of MC's privacy policy (e.g. we don't sell your data but we may share it) and a link to it.
+- [ ] **NOTE** Would be good to update the form with a super brief summary of MC's privacy policy (e.g. we don't sell your data but we may share it) and a link to it. Also need to add a note to the form that people can still send email requests... per GDPR.
 - [ ] Stretch goal is a notification when all status are updated or if a certain amount of time has passed and they aren't.  Here's a flow for [email notification sent when the status of a column in a list in changed](https://powerusers.microsoft.com/t5/Building-Flows/Sharepoint-List-and-Flow-with-a-status-update/td-p/139821). I don't think this is right... I probably need an expression that checks status in all columns... This could be separate or part of main flow, either way, this is a stretch for now.
 
 
