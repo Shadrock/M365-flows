@@ -107,9 +107,11 @@ Flow wasn't triggering. Checked to see where the error was and it wasn't getting
 Then moved on to testing the new status system, which appears to work! New items comes in as `New`. DSR owner triggers the flow by changing that status to `Approved` and when the first approval result comes in this changes the status to `In Progress`, which prevents the Flow from double triggering. Right now this is set as a second **Update Item** action in each switch case (so there are three of them).
 
 I'm going to try making this a single action outside of the case. This didn't work. Gotta keep it in the case.  
-Switched it back and it appears to be working... but my first approval never came through email: only approval app in Teams. Email showed up 10 min later... just a slow system. Running this again, and I'm getting the approval but the email has yet to show up 20 min later. Just going to let this ride a bit and see how long it takes.  
+Switched it back and it appears to be working... but my first approval never came through email: only approval app in Teams. Email showed up 10 min later... just a slow system. Running this again, and I'm getting the approval but the email has yet to show up 20 min later. Just going to let this ride a bit and see how long it takes. After 30 min or so with no email I just approved out of Approval in Teams. Curious to see if I get an email in the next few minutes. Email showed up at 11:50. Ran again and everything came through right away. Think we can call this good and move on to the multiple people issue.
 
+Solution now looks like this:
 
+![Screenshot of triggering twice solution](images/Step-2-Triggering-Twice_solution.png)
 
 ## List Changes
 I was looking up ways to modify list values and ran across [this post](https://techcommunity.microsoft.com/t5/sharepoint/updating-specific-list-column-value-with-flow/m-p/757183), which had a useful piece of information in it:
