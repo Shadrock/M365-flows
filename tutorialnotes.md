@@ -90,7 +90,7 @@ For the most part everything is working fine. However, the second flow was firin
 
 - I tried adding a Terminate action to the end of each Update action, under the Switch cases. This stopped sending email approvals... but they still showed up in Teams... very odd.
 - Going to try to add a Terminate action as a new step after the whole Start and wait for an approval condition.
-- Okay, deleted the terminations on the switch cases which just meant that I didn't get approvals via email anymore... so I added one Terminate action under the switch, which looks like this: 
+- Okay, deleted the terminations on the switch cases which just meant that I didn't get approvals via email anymore... so I added one Terminate action under the switch, which looks like this:
 
 ![Screenshot of Termination Attempt](images/Step-2-Triggering-Twice.png)
 
@@ -100,6 +100,16 @@ getting the same result: getting double approvals in Teams... but no longer gett
 ![Screenshot of Termination Attempt 2](images/Step-2-Triggering-Twice2.png)
 
 GAHHHHAHARAHAHAGGGHRRRRRRR. Still getting two approvals. Only one for email now... but this is driving me insane. Really feel like that status tag needs to change with the first approval.
+
+### Trying to solve the double approval
+Flow wasn't triggering. Checked to see where the error was and it wasn't getting any input from the condition block. So I changed `Status` to `Status value` in condition block and that took care of it.
+
+Then moved on to testing the new status system, which appears to work! New items comes in as `New`. DSR owner triggers the flow by changing that status to `Approved` and when the first approval result comes in this changes the status to `In Progress`, which prevents the Flow from double triggering. Right now this is set as a second **Update Item** action in each switch case (so there are three of them).
+
+I'm going to try making this a single action outside of the case. This didn't work. Gotta keep it in the case.  
+Switched it back and it appears to be working... but my first approval never came through email: only approval app in Teams. Email showed up 10 min later... just a slow system. Running this again, and I'm getting the approval but the email has yet to show up 20 min later. Just going to let this ride a bit and see how long it takes.  
+
+
 
 ## List Changes
 I was looking up ways to modify list values and ran across [this post](https://techcommunity.microsoft.com/t5/sharepoint/updating-specific-list-column-value-with-flow/m-p/757183), which had a useful piece of information in it:
