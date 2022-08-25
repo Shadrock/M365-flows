@@ -113,6 +113,8 @@ Solution now looks like this:
 
 ![Screenshot of triggering twice solution](images/Step-2-Triggering-Twice_solution.png)
 
+Important find for multiple approvals: looks like what I need is a "parallel branch" (see this [MS docs post for example](https://docs.microsoft.com/en-us/power-automate/parallel-modern-approvals)). 
+
 ## List Changes
 I was looking up ways to modify list values and ran across [this post](https://techcommunity.microsoft.com/t5/sharepoint/updating-specific-list-column-value-with-flow/m-p/757183), which had a useful piece of information in it:
 > Also, if you set the default view of the list to be filtered so people can only see the items where the <shift person> column equals [Me], they can just pull up the list, see their own record and edit it. That will greatly reduce the probability of Mark accidentally editing the item for Jane. You can also turn on versioning, so each and every item change can be traced back to who made the change.
