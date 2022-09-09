@@ -30,6 +30,6 @@ The person field is fairly complex... make sure you're seeing your name with a g
 
 she makes an array and loops through w/ first to respond, record answer, and counts the approvals. She's passing the loop from power apps: a sharepoint list with people who's role is "approver"... reference this. For each item in this array send this approver an email. If this is "create and wait" for approval is could be awhile. You could put a counter on it to cancel and mark a non-responsive person or
 
-For a complex approval, they suggest useing tasks and have a scheduled flow to test things every day. 
+For a complex approval, they suggest using tasks and have a scheduled flow to test things every day.
 
-Also, flows time out after 28 days!
+Also, flows time out after 28 days! See [this blog post](https://www.c-sharpcorner.com/blogs/how-to-increase-powerautomate-timeout-more-than-30-days#:~:text=As%20we%20know%20flow%20instance,29%20days%20we%20will%20take) for handling time outs. 
