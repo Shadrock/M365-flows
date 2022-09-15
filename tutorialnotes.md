@@ -114,9 +114,13 @@ Solution now looks like this:
 ![Screenshot of triggering twice solution](images/Step-2-Triggering-Twice_solution.png)
 
 ### To Check!
-In the production flow I've set both of the updates to happen in a single "Update Item" action. I also had a "terminate"
+In the production flow I've set both of the updates to happen in a single "Update Item" action. Which may or may not be working.
 
-Important find for multiple approvals: looks like what I need is a "parallel branch" (see this [MS docs post for example](https://docs.microsoft.com/en-us/power-automate/parallel-modern-approvals)).
+I'm also using a "parallel branch" (see this [MS docs post for example](https://docs.microsoft.com/en-us/power-automate/parallel-modern-approvals)) for parallel approvals, but it appears that the second approval (from Tynch) isn't being captured in the list... only in Approvals. In other words, the list isn't updating even though the triggered flow sent him an approval, which he completed.
+
+I also had a "terminate" function after each branch (mine and Tynche's) which may have been blocking the second approval since once a person completed their branch, the flow reached termination! Still testing this.
+
+Basically, test that removing the termination captures both flows in the list. If it works, then no need to test the double Update Item. 
 
 ## List Changes
 I was looking up ways to modify list values and ran across [this post](https://techcommunity.microsoft.com/t5/sharepoint/updating-specific-list-column-value-with-flow/m-p/757183), which had a useful piece of information in it:
