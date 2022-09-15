@@ -113,7 +113,10 @@ Solution now looks like this:
 
 ![Screenshot of triggering twice solution](images/Step-2-Triggering-Twice_solution.png)
 
-Important find for multiple approvals: looks like what I need is a "parallel branch" (see this [MS docs post for example](https://docs.microsoft.com/en-us/power-automate/parallel-modern-approvals)). 
+### To Check!
+In the production flow I've set both of the updates to happen in a single "Update Item" action. I also had a "terminate"
+
+Important find for multiple approvals: looks like what I need is a "parallel branch" (see this [MS docs post for example](https://docs.microsoft.com/en-us/power-automate/parallel-modern-approvals)).
 
 ## List Changes
 I was looking up ways to modify list values and ran across [this post](https://techcommunity.microsoft.com/t5/sharepoint/updating-specific-list-column-value-with-flow/m-p/757183), which had a useful piece of information in it:
