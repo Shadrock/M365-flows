@@ -1,9 +1,17 @@
 # A Lightweight Data Subject Request Tracker
 
-This repository contains files and general instructions for creating a basic Data Subject Request tracker using Microsoft Power Automate. Some familiarity with various aspects of Microsoft (MS) Sharepoint - specifically [Forms](https://support.microsoft.com/en-us/office/create-a-form-with-microsoft-forms-4ffb64cc-7d5d-402f-b82e-b1d49418fd9d), [Lists](https://support.microsoft.com/en-us/office/introduction-to-lists-0a1c3ace-def0-44af-b225-cfa8d92c52d7), and [Approvals](https://support.microsoft.com/en-us/office/what-is-approvals-a9a01c95-e0bf-4d20-9ada-f7be3fc283d3) - will be extremely helpful for replication.
+This repository contains files and general instructions for creating a basic Data Subject Request tracker using Microsoft Power Automate. Some familiarity with various aspects of Microsoft (MS) Sharepoint - specifically [Forms](https://support.microsoft.com/en-us/office/create-a-form-with-microsoft-forms-4ffb64cc-7d5d-402f-b82e-b1d49418fd9d), [Lists](https://support.microsoft.com/en-us/office/introduction-to-lists-0a1c3ace-def0-44af-b225-cfa8d92c52d7), and [Approvals](https://support.microsoft.com/en-us/office/what-is-approvals-a9a01c95-e0bf-4d20-9ada-f7be3fc283d3) - is helpful for replicating the tracker yourself.
+
+The specific requirements and configuration for each flow are contained in the `README` of each flow's folder along with the files you can use to import the flow into your own environment. These flows were created using [Microsoft Power Automate](https://docs.microsoft.com/power-automate/) and use Microsoft Forms, Office 365 Outlook, Microsoft Teams, and SharePoint.
+
+#### Compatibility
+![Premium License](https://img.shields.io/badge/Premium%20License-Not%20Required-green.svg "Premium license not required")
+![On-Premises Connectors](https://img.shields.io/badge/On--Premises%20Connectors-No-green.svg "Does not use on-premise connectors")
+![Custom Connectors](https://img.shields.io/badge/Custom%20Connectors-Not%20Required-green.svg "Does not use custom connectors")
+<!-- Check this -->
 
 ## Use Case
-A Data Subject Request (or Data Subject Access Request) are required by various privacy laws, and allow an individuals to access information about personal data the organization is processing about them, generally for the purposes of understanding what data are held, updating data, or asking the organization to delete their data. At Mercy Corps, such a request requires coordinating with the owners of 11 different information systems and my team needed a relatively easy way to track these requests.
+Data Subject Requests (or Data Subject Access Requests) are required by various privacy laws. They allow an individual to access information about how and what personal data an organization has about them. This is generally for the purposes of understanding what data are held, updating data, or asking the organization to delete their data. At Mercy Corps, such a request requires coordinating with the owners of 11 different information systems and my team needed a relatively easy way to track these requests.
 
 The initial "system" that was developed for these was simply to receive a request via an email, then email all the system owners at regular intervals to comply with the request. There were several problems with this and the system was:
 - unresponsive to data subjects who didn't get an immediate response;
@@ -13,10 +21,10 @@ The initial "system" that was developed for these was simply to receive a reques
 - insecure because emails containing personal information related could stay in people’s inboxes.
 
 ## Summary
-The solution presented here uses a Form, a List, and Power Automate to create a more secure, more efficient system based on a two part workflow.
+The solution presented here uses a Form, a List, and Power Automate to create a more secure, more efficient system based on a two-part workflow.
 
 ### Part 1 - Automated Request Creation
-The first flow takes input from a form and creates a new item in a Sharepoint list, which in turn notifies the "DSAR owner" (person responsible for complying with the request) that a new item has been created. The flow also sends an automated email to the requestor informing that the request has been received.
+The first flow takes input from a form and creates a new item in a Sharepoint list, which in turn notifies the "DSAR owner" (person responsible for managing requests) that a new item has been created. The flow also sends an automated email to the requestor informing that the request has been received.
 
 ![Flow diagram of Part 1](images/M365_Flow1_for_DSR.jpg)
 
@@ -34,15 +42,10 @@ A system owner can simply click the appropriate response type, add a comment, an
 
 ![Flow diagram of Part 2](images/M365_Flow2_for_DSR.jpg)
 
-### Future Improvements - to write
-What would I change?
-Make all one flow.
-Automatic email to requestor based on column status?
+### Future Improvements
+There are two primary changes that should be considered for this flow. The first is to combine them. I've purposefully created a two-step process to force myself to interact with the list that contains requests, but you could easily introduce an approval to step 1 in which the DSAR owner to would approve the incoming request and that approval would kick off step 2.
 
-## Requirements - to write... or should this just separate readme for each flow? 
-Form - what fields?
-List - what columns?
-People - who owns what?
+The other improvement would be to generate an automatic email to the requestor once all systems owners have responded. I've purposefully kept this manual since I may want to alter my correspondence with the requestor based on _how_ the system owners comply, but this could be automated as well.
 
 ## Acknowledgements / Resources
 I found the following extremely helpful for developing my flow:
