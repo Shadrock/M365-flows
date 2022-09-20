@@ -18,7 +18,7 @@ The initial "system" that was developed for these was simply to receive a reques
 - inefficient: clogged inboxes, searching for emails, etc;
 - difficult to track and hard to see who has complied with what;
 - difficult to report on, since any audit trail would require searching through and stitching together multiple emails;
-- insecure because emails containing personal information related could stay in people’s inboxes.
+- insecure because emails containing personal information related to the request could stay in people’s inboxes.
 
 ## Summary
 The solution presented here uses a Form, a List, and Power Automate to create a more secure, more efficient system based on a two-part workflow.
