@@ -1,6 +1,6 @@
 # A Lightweight Data Subject Request Tracker
 
-This repository contains files and general instructions for creating a basic Data Subject Request tracker using Microsoft Power Automate. The tracker is made up of two flows. The specific requirements and configuration for each flow are contained in the `README` of each flow's folder along with the files you can use to import the flow into your own environment. These flows were created using [Microsoft Power Automate](https://docs.microsoft.com/power-automate/) and some familiarity with various aspects of Microsoft (MS) Sharepoint - specifically [Forms](https://support.microsoft.com/en-us/office/create-a-form-with-microsoft-forms-4ffb64cc-7d5d-402f-b82e-b1d49418fd9d), [Lists](https://support.microsoft.com/en-us/office/introduction-to-lists-0a1c3ace-def0-44af-b225-cfa8d92c52d7), and [Approvals](https://support.microsoft.com/en-us/office/what-is-approvals-a9a01c95-e0bf-4d20-9ada-f7be3fc283d3) - is helpful for replicating the tracker yourself.
+This repository contains files and general instructions for creating a basic Data Subject Request tracker using Microsoft Power Automate. The tracker is made up of two flows. The specific requirements and configuration for each flow are contained in the `README` of each flow's folder along with the files you can use to import the flow into your own environment. These flows were created using [Microsoft Power Automate](https://docs.microsoft.com/power-automate/) and some familiarity with various aspects of Microsoft (MS) Sharepoint - specifically [Forms](https://support.microsoft.com/en-us/office/create-a-form-with-microsoft-forms-4ffb64cc-7d5d-402f-b82e-b1d49418fd9d), [Lists](https://support.microsoft.com/en-us/office/introduction-to-lists-0a1c3ace-def0-44af-b225-cfa8d92c52d7), and [Approvals](https://support.microsoft.com/en-us/office/what-is-approvals-a9a01c95-e0bf-4d20-9ada-f7be3fc283d3) - is helpful for replicating or modifying the tracker yourself.
 
 #### Compatibility
 ![Premium License](https://img.shields.io/badge/Premium%20License-Not%20Required-green.svg "Premium license not required")
@@ -33,14 +33,16 @@ The first flow takes input from a form and creates a new item in a Sharepoint li
 In the flow I've created, the DSAR owner manually reviews the request and then continues the flow (in Part 2, below) by updating the request. This step could also be part of the flow, but it was easiest for me to simply review the list manually and update each item at regular intervals.
 
 ### Part 2 - Semi-Automated Request Compliance
-Upon reviewing the request and deciding to proceed, the DSAR owner updates the status of the list item from `New` to `Approved`, which triggers an approval to multiple system owners. The approval I've created allows for 3 types of response:
+Upon reviewing the request and deciding to proceed, the DSAR owner updates the status of the list item from `New` to `Approved`, which triggers an approval to multiple system owners. System owners receive an Approval via both email and as a Teams message. The system owner can simply click the appropriate response type, add a comment, and submit. This automatically updates the list item with whatever response was taken. The approval I've created allows for 3 types of response:
 - The data subject was not found in the system.
 - The data subject was found and deleted from the system.
-- The data subject was found in the system but was not deleted. This can be due to legal obligations to hold the data for a specified period of time, etc.
+- The data subject was found in the system but was not deleted (e.g. due to legal hold, data retention policies, etc.)
 
 You can create whatever response types you need.
 
-System owners receive an Approval via both email and as a Teams message. The system owner can simply click the appropriate response type, add a comment, and submit. This automatically updates the list item with whatever response was taken. The DSAR owner can track the status of all requests across all systems and the actions of each system owners are captured in the Microsoft Approvals history in case an audit trail is required. The fact that approvals transform once completed means that no personal information remains inadvertently inside of emails and membership to lists can be easily managed to limit access to only those who need it. Below is a diagram of Flow 2.
+This allows the DSAR owner to track the status of all requests across all systems. The actions of each system owner are captured in the Microsoft Approvals history in case an audit trail is required. Membership to the Sharepoint lists that holds the requests can be easily managed to limit access to only those who need it and the fact that Approvals transform from a request to a receipt once the request is complete, means that no personal information remains inadvertently inside of emails.
+
+Below is a diagram of Flow 2.
 
 ![Flow diagram of Part 2](images/M365_Flow2_for_DSR.jpg)
 
