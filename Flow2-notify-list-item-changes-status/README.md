@@ -44,10 +44,15 @@ This flow requires a [List in SharePoint](https://support.microsoft.com/en-us/of
 ## Installation
 * [Download](Flow-file/DSR_Step2_approval_list_item_status_update.zip) the `.zip` file from the `Flow-file` folder by clicking on "View raw" or the "Download" button. <!-- Test download and import -->
 * Browse to your [Power Automate](https://flow.microsoft.com/manage/environments) and select the environment where you wish to import the sample
-* From the toolbar, select **Import**
+* From the toolbar, select **Import**, then **Import package**.
 * In the **Import package** page, select **Upload** and choose the `.zip` file containing the sample flow.
-* Select **Import**
-* Once the sample Flow is installed, you will need to change the relevant variables to connect with your forms, lists, and staff.
+* You will need to change the relevant resources to connect with your accountduring the import. To do this, look for the `Select during import` link under the "Import Setup" column. Click this link, then look for your resources and connections to appear in the pop-up window. Select the appropriate resources then click save. See screenshot below.
+
+> ![Screenshot of assets used](images/Flow_import_resourcechanges.png)
+
+* Once you've updated the required resources select **Import**
+* Once the sample Flow is installed, forms, lists, and staff. **were list the fields to change**?
+* You may need to [turn the flow on](https://learn.microsoft.com/en-us/power-automate/disable-flow).
 
 For further help importing Flows, [see this blog post from Microsoft](https://powerautomate.microsoft.com/en-us/blog/import-export-bap-packages/).
 

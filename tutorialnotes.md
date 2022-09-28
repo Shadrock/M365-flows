@@ -120,7 +120,7 @@ I'm also using a "parallel branch" (see this [MS docs post for example](https://
 
 I also had a "terminate" function after each branch (mine and Tynche's) which may have been blocking the second approval since once a person completed their branch, the flow reached termination! Still testing this.
 
-Basically, test that removing the termination captures both flows in the list. If it works, then no need to test the double Update Item. 
+Basically, test that removing the termination captures both flows in the list. If it works, then no need to test the double Update Item.
 
 ## List Changes
 I was looking up ways to modify list values and ran across [this post](https://techcommunity.microsoft.com/t5/sharepoint/updating-specific-list-column-value-with-flow/m-p/757183), which had a useful piece of information in it:
@@ -165,3 +165,26 @@ This is what I'm looking for in terms of audit capacity. I did turn versioning o
 ### Resources
 - MS Docs has a good page on [Customizing Approval Requests](https://docs.microsoft.com/en-us/power-automate/approvals-howto), which includes a way to change the buttons (this is one of the things I'll need to do for system owners). Together with the [Top scenarios with approval flows](https://docs.microsoft.com/en-us/power-automate/approvals-howto) there is some useful info.
 - MS documentation on [creating useful views in lists](https://docs.microsoft.com/en-us/microsoft-365/community/creating-useful-views-in-lists-libraries#how-will-your-users-use-this-view) (e.g. make sure newest item is first) will be helpful for setting up list. Also, [filtering to modify a Sharepoint view](https://docs.microsoft.com/en-us/microsoft-365/community/creating-useful-views-in-lists-libraries#how-will-your-users-use-this-view) may be helpful (although it looks kinda confusing).
+
+## Import Notes
+Instructions for Flow 2. The `zip` folder is just a collection of `json` files. Be sure to look at the settings for the export: somewhat hidden is the option to make sure the import creates a new flow or updates an existing one.  
+
+* [Download](Flow-file/DSR_Step2_approval_list_item_status_update.zip) the `.zip` file from the `Flow-file` folder by clicking on "View raw" or the "Download" button. <!-- Test download and import -->
+* Browse to your [Power Automate](https://flow.microsoft.com/manage/environments) and select the environment where you wish to import the sample
+* From the toolbar, select **Import**, then **Import package**.
+* In the **Import package** page, select **Upload** and choose the `.zip` file containing the sample flow.
+* You will need to change the relevant resources to connect with your account, resources, etc. To do this, look for the `Select during import` link under the "Import Setup" column. Click this link, then look for your resources and connections to appear in the pop-up window. Select the appropriate resources then click save. See screenshot below.
+
+> Screenshot here
+
+* Once you've updated the required resources select **Import**
+* Once the sample Flow is installed, forms, lists, and staff.
+* You may need to turn the flow on. Do this right clicking on the flow, 
+
+---------
+DSR_Step2_approval_list_item_status_update.zip
+
+DSR Step 2: alternate approval list item changes status to 'In Progress'
+Description
+
+This flow completes 2 actions when the Status column in the data subject request list is changed from "New" to "Approved" 1. Sends approval email to specified address (system owner). This includes data subject name, contact info, country, and the request. 2. Approval response by system owner changes appropriate status column in the list as an outcome of the approval.
