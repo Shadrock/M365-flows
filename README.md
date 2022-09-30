@@ -47,9 +47,9 @@ Below is a diagram of Flow 2.
 ![Flow diagram of Part 2](images/M365_Flow2_for_DSR.jpg)
 
 ### Future Improvements
-There are two primary changes that should be considered for this flow. The first is to combine them. I've purposefully created a two-step process to force myself to interact with the list that contains requests, but you could easily introduce an approval to flow 1 in which the DSAR owner to would approve the incoming request and that approval would kick off flow 2.
+There are two primary changes that should be considered for this flow. The first is to combine them. I've purposefully created a two-step process to force myself to interact with the list that contains requests, but you could easily introduce an approval to flow 1 in which the DSAR owner would approve the incoming request and that approval would kick off flow 2.
 
-The other improvement would be to generate an automatic email to the requestor once all systems owners have responded. I've purposefully kept this manual since I may want to alter my correspondence with the requestor based on _how_ the system owners comply, but this could be automated as well.
+The other improvement would be to generate an automatic email to the requestor once all system owners have responded. I've purposefully kept this manual since I may want to alter my correspondence with the requestor based on _how_ the system owners comply, but this could be automated as well.
 
 ## Acknowledgements / Resources
 I found the following extremely helpful for developing my flow:
