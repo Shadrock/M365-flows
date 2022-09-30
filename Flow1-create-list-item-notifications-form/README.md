@@ -76,7 +76,7 @@ Because I keep Teams open all day (and sometimes ignore email) I wanted to get a
 - `Message` - same as the `Body` field in the email: configure this to display whatever information you want to see.
 
 ## Help & Feedback
-This repository is maintained by the Data Protection & Privacy team at Mercy Corps. If you are a Mercy Corps staff member and need help duplicating this flow for another use case, reach out to dataprotection@mercycorp.org for assistance. Anyone can [create a new issue](https://github.com/pnp/powerautomate-samples/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected&template=bug-report.yml&sample=YOURSAMPLENAME&authors=@YOURGITHUBUSERNAME&title=YOURSAMPLENAME%20-%20) for any problems and submit updates or additions to this material via a Github [pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
+This repository is maintained by the Data Protection & Privacy team at Mercy Corps. If you are a Mercy Corps staff member and need help duplicating this flow for another use case, reach out to dataprotection@mercycorp.org for assistance. Anyone can [create a new issue](https://github.com/Shadrock/M365-flows/issues) for any problems and submit updates or additions to this material via a Github [pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
 
 ## Disclaimer
 This code is provided *as is* without any warranty of any kind, either express or implied, including any implied warranties of fitness for a particular purpose, merchantability, or non-infringement.
