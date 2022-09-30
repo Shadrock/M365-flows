@@ -26,7 +26,7 @@ The initial "system" that was developed for these was simply to receive a reques
 The solution presented here uses a Form, a List, and Power Automate to create a more secure, more efficient system based on a two-part workflow.
 
 ### Part 1 - Automated Request Creation
-The first flow takes input from a form and creates a new item in a Sharepoint list, which in turn notifies the "DSAR owner" (person responsible for managing requests) that a new item has been created. The flow also sends an automated email to the requestor informing that the request has been received. Below is a diagram of Flow 1.
+The first flow takes input from a form and creates a new item in a Sharepoint list, which in turn notifies the "DSAR owner" (person responsible for managing requests) that a new item has been created. The flow also sends an automated email to the requestor informing that the request has been received. Below is a diagram of [Flow 1](/Flow1-create-list-item-notifications-form/README.md).
 
 ![Flow diagram of Part 1](images/M365_Flow1_for_DSR.jpg)
 
@@ -42,7 +42,7 @@ You can create whatever response types you need.
 
 This allows the DSAR owner to track the status of all requests across all systems. The actions of each system owner are captured in the Microsoft Approvals history in case an audit trail is required. Membership to the Sharepoint lists that holds the requests can be easily managed to limit access to only those who need it and the fact that Approvals transform from a request to a receipt once the request is complete, means that no personal information remains inadvertently inside of emails.
 
-Below is a diagram of Flow 2.
+Below is a diagram of [Flow 2](/Flow2-notify-list-item-changes-status/README.md).
 
 ![Flow diagram of Part 2](images/M365_Flow2_for_DSR.jpg)
 
