@@ -54,6 +54,8 @@ The other improvement would be to generate an automatic email to the requestor o
 ## Acknowledgements / Resources
 I found the following extremely helpful for developing my flow:
 
+- [Create your first flow](https://docs.microsoft.com/en-us/power-automate/getting-started#create-your-first-flow)
+- [Microsoft Power Automate documentation](https://docs.microsoft.com/en-us/power-automate/)
 - This walk-through for creating a [Simple Ticketing System in SharePoint Online](https://concurrency.com/blog/february-2019/create-a-simple-ticketing-system-in-sharepoint-onl) is what got me started thinking about managing DSRs in a List versus the current spreadsheet workflow.
 - This sample [request/review/approval flow from the the M365 user community](https://github.com/pnp/powerautomate-samples/tree/main/samples/request-review-and-approval-for-a-selected-file)
 - A [Power Automate template from Microsoft](https://powerautomate.microsoft.com/en-us/templates/details/d62b2527bb5343d689d5107b0922e57b/start-approval-when-a-new-item-is-added/) or the [larger library of Power Automate templates](https://powerautomate.microsoft.com/en-us/templates/)

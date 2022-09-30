@@ -38,10 +38,5 @@ If you are a Mercy Corps staff member and need help duplicating this flow for an
 
 This repository is maintained by the Data Protection & Privacy team at Mercy Corps. You can submit updates or additions to this material via a Github pull request ([read about pull requests here](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)) or by contacting us at dataprotection@mercycorp.org.
 
-## For more information
-- [Create your first flow](https://docs.microsoft.com/en-us/power-automate/getting-started#create-your-first-flow)
-- [Microsoft Power Automate documentation](https://docs.microsoft.com/en-us/power-automate/)
-
-
 ## Disclaimer
 This code is provided *as is* without any warranty of any kind, either express or implied, including any implied warranties of fitness for a particular purpose, merchantability, or non-infringement.
