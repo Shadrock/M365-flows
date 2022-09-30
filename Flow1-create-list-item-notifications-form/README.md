@@ -5,7 +5,7 @@ This is the first of two Power Automate Flows that are used by Mercy Corps' Data
 2. sends confirmation email to the data subject that form has been received and that DPP will follow-up.
 3. Sends notification email and Teams chat message internally to flag the need to check the SharePoint list and update status of new item to `Approved` (which will trigger [the second flow](/Flow2-notify-list-item-changes-status/README.md)).
 
-On it's own, this flow can be used to populate a list from form responses and send notifications. Together with the second flow in this repo, we can efficiently create data subject requests; send notifications to various system holders across our organization; and track the compliance of each system owner with the request. If we are audited, our flow provides detailed data concerning all actions taken to comply with the request.
+On it's own, this flow can be used to populate a list from form responses and send notifications. Together with the second flow in this repo, we can efficiently create data subject requests; send notifications to various system holders across our organization; and track the compliance of each system owner with the request. If we are audited, our flow provides detailed data concerning all actions taken to comply with the request. An overview of the assets used is below.
 
 ![Screenshot of assets used](images/Flow1_Create_item_send_notifications2.png)
 
